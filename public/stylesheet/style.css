@@ -4,7 +4,7 @@ header {
 /* navbar */
 .navbar{
   height:100%;
-  background-color:#A6775B;
+  /* background-color:#A6775B; */
 }
 
 .container-navbar{
@@ -14,13 +14,9 @@ header {
   /* color:#9B978B; */
 }
 
-#create{
-  background-color: #F2DAC4;
-}
 
-.navbar .navbar-brand {
-  color: #F2DAC4
-}
+
+
 
 .navbar .navbar-brand:hover {
   color: #226089;
@@ -29,18 +25,18 @@ header {
 
 
 .form-control::placeholder {
-  color: #aaaaaa;
+  /* color: #aaaaaa; */
   font-size: 0.8rem;
 }
 
-.btn-major {
+/* .btn-major {
   background-color: #9b4b4b;
   color: white;
-}
+} */
 
 .form-control:focus {
   box-shadow: none;
-  border-color: #ced4da;
+  /* border-color: #ced4da; */
 }
 
 #index-card {
@@ -94,7 +90,7 @@ header {
 .restaurant-show-title {
   position: relative;
   top: 50px;
-  color: #A64F03;
+  /* color: #A64F03; */
   text-align: center;
   font-size: 3rem;
   /* text-shadow: 0 0 5px rgba(242, 152, 99, 0); */
@@ -160,7 +156,7 @@ ul{
   margin: 2em auto;
   padding: 10px;
   border-radius: 8px;
-  background-color: #D1BA98;
+  /* background-color: #D1BA98; */
 }
 .detail-div{
   text-align:center;
@@ -182,7 +178,7 @@ input.form-control{
 .restaurant-edit-title {
   position: relative;
   top: 15px;
-  color: #A64F03;
+  /* color: #A64F03; */
   text-align: center;
   font-size: 3rem;
 }
@@ -193,5 +189,5 @@ i,span,p{
 
 
 body{
-  background-color:#F5E3C9 ;
+  background-color:#f1e6d6 ;
 }

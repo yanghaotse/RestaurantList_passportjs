@@ -36,7 +36,7 @@
     <div class="container container-restaurant col-12">
         {{!-- render restaurant-list --}}
         <a href="/restaurants/{{this._id}}/detail" class="text-secondary">
-          <div class="card mb-3" id="index-card">
+          <div class="card mb-3" id="index-card" >
             <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
             <div class="card-body p-3">
               <h6 class="card-title mb-1">{{this.name}}</h6>
@@ -52,8 +52,8 @@
             </div>
             <ul class="index-ul">
               <li style="display:inline">
-                <a href="/restaurants/{{this._id}}/edit">Edit</a>
-                <a href="/restaurants/{{this._id}}/detail">Detail</a>
+                <a href="/restaurants/{{this._id}}/edit" class="btn btn-outline-success">Edit</a>
+                <a href="/restaurants/{{this._id}}/detail" class="btn btn-outline-info">Detail</a>
                 <form action="/restaurants/{{this._id}}?_method=DELETE" method="POST" id="delete-form" style="display:inline">
                   <button class="btn btn-outline-danger" type="submit" id="delete-button">Delete</button>
                 </form>
