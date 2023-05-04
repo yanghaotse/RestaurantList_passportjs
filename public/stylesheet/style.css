@@ -1,0 +1,197 @@
+header {
+  overflow: hidden; 
+}
+/* navbar */
+.navbar{
+  height:100%;
+  background-color:#A6775B;
+}
+
+.container-navbar{
+  display:flex;
+  justify-content: space-between;
+  /* background-color:#9B978B; */
+  /* color:#9B978B; */
+}
+
+#create{
+  background-color: #F2DAC4;
+}
+
+.navbar .navbar-brand {
+  color: #F2DAC4
+}
+
+.navbar .navbar-brand:hover {
+  color: #226089;
+}
+
+
+
+.form-control::placeholder {
+  color: #aaaaaa;
+  font-size: 0.8rem;
+}
+
+.btn-major {
+  background-color: #9b4b4b;
+  color: white;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #ced4da;
+}
+
+#index-card {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card img{
+  height: 180px;
+}
+
+.card-title{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.restaurant-category {
+  color: #666666;
+  font-size: 0.8rem;
+}
+
+
+
+@media screen and (max-width: 992px) {
+  
+  .card img{
+    height: 115px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  
+  .restaurant-show-title {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  
+  .card img{
+    height: auto;
+  }
+  
+}
+
+/* detail-page */
+.container-detail{
+  margin-top: 100px;
+}
+
+.restaurant-show-title {
+  position: relative;
+  top: 50px;
+  color: #A64F03;
+  text-align: center;
+  font-size: 3rem;
+  /* text-shadow: 0 0 5px rgba(242, 152, 99, 0); */
+}
+/* search-bar */
+.container-search-bar{
+  margin-top:5rem;
+  padding:10px;
+  display:flex;
+  justify-content: space-between;
+  /* background-color:#F5E3C9 ; */
+}
+.search-bar-div{
+  /* height:20px; */
+  /* height:50px; */
+  width:30%;
+  border-radius: 25%;
+}
+#search-form{
+  border-radius: 25%;
+  height:50px;
+}
+.input-group .input-group-append .btn-major{
+  height:50px;
+}
+
+.sort-div{
+  width:30%;
+}
+.form-select{
+  height:50px;
+  width: 100%;
+}
+
+.container-restaurant{
+  max-width: 25%;
+}
+
+.row-cols-1{
+  display:flex;
+  /* justify-content: center; */
+  justify-content: space-between;
+  text-decoration: none;
+}
+
+.index-ul{
+  text-align: end;
+  /* font-family: 'Open Sans', sans-serif; */
+  
+}
+.detail-ul{
+  text-align:center;
+}
+a{
+  text-decoration: none;
+}
+ul{
+  font-family:'Open Sans', sans-serif;
+}
+
+.container-new{
+  width: 60%;
+  margin: 2em auto;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #D1BA98;
+}
+.detail-div{
+  text-align:center;
+}
+.detail-word{
+  display: inline-block; /* 讓 detail-word 成為 inline-block 元素，以便置中 */
+  text-align: left; /* 將 detail-word 內的文字對齊方式設為左對齊 */
+  width:50%;
+  flex-wrap: wrap;
+  font-size: 16px;
+}
+input.form-control{
+  margin-left:5px;
+}
+.form-button{
+  text-align: end;
+}
+
+.restaurant-edit-title {
+  position: relative;
+  top: 15px;
+  color: #A64F03;
+  text-align: center;
+  font-size: 3rem;
+}
+
+i,span,p{
+  font-size: 18px;
+}
+
+
+body{
+  background-color:#F5E3C9 ;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant List</title>
+  <script src="https://kit.fontawesome.com/1c8871ad8b.js" crossorigin="anonymous"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/stylesheet/bootstrap.css">
+  <link rel="stylesheet" href="/stylesheet/style.css">
+</head>
+
+<body>
+  <header>
+    <!-- navigation -->
+    <nav class="navbar navbar-light">
+      <div class="container container-navbar">
+        <a class="navbar-brand" href="/">
+          <i class="mr-5 fa-solid fa-utensils" style="color: #F2BE5C;"></i> <span>Restaurant List</span> 
+        </a>
+        <a class="btn btn-outline-secondary" id="create" role="button" href="/restaurants/new">Create</button></a>
+      </div>
+    </nav>
+  </header>
+  <div class="container-render">
+    {{{body}}}
+  </div>
+  
+  <script src="/public/javascript/popper.js"></script>
+  <script src="/public/javascript.bootstrap.js"></script>
+  {{!-- "新增餐廳"表單驗證 (+編輯餐廳)--}} 
+  <script>
+    const form = document.querySelector('#form')
+    form.addEventListener('submit', function onFormSubmitted(event) {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+      form.classList.add('was-validated')
+    })   
+  </script>
+
+  {{!-- delete-button監聽 --}}
+  <script>
+    //const deleteForm = document.querySelector('#delete-form')
+    const deleteButtons = document.querySelectorAll('#delete-button')
+    deleteButtons.forEach(deleteButton => {
+      deleteButton.addEventListener('click', function onDeleteButtonClicked(event) {
+        event.preventDefault()
+        if (confirm("確定要刪除此筆餐廳資料嗎?")) {
+          const deleteForm = deleteButton.parentElement
+          deleteForm.submit()
+        }
+      })
+    })
+  </script>
+  {{!-- sort 監聽 --}}
+  <script>
+    const sortForm = document.querySelector("#sort-form")
+    const select = document.querySelector("#sort-select")
+    select.addEventListener('change', () => {
+      //console.log(select.value)
+      sortForm.action = `/sort/?sort-select=${select.value}`
+      console.log(sortForm.action)
+      sortForm.submit()
+    })
+  </script>
+{{!-- 網頁重新整理 --}}
+  <script>
+    //取得瀏覽器導航的行為類型
+    //0: 新頁面被打開或是首次載入 1: 重新整理 2: 瀏覽器的前進或後退按鈕被按下 255: 瀏覽器導航類型不明確
+    if (performance.navigation.type == 1) { 
+        location.href = '/';
+      }
+  </script>
+</body>
+
+</html>
