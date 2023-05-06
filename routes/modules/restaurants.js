@@ -31,66 +31,72 @@ router.get('/new', (req, res) => {
 
 // 新增路由POST
 router.post('/', (req, res) => {
-  const bodyParser = req.body
+  const userId = req.user._id
+  const {name, name_en, category, image, location, phone, google_map, rating, description} = req.body
   // console.log(bodyParser)
   return Restaurant.create( {
-    name: bodyParser.name,
-    name_en: bodyParser.name_en,
-    category: bodyParser.category,
-    image: bodyParser.image,
-    location: bodyParser.location,
-    phone: bodyParser.phone,
-    google_map: bodyParser.google_map,
-    rating: bodyParser.rating,
-    description: bodyParser.description
+    name: name,
+    name_en: name_en,
+    category: category,
+    image: image,
+    location: location,
+    phone: phone,
+    google_map: google_map,
+    rating: rating,
+    description: description,
+    userId: userId
   })
     .then( () => res.redirect('/'))
     .catch( error => console.log(error))
-
 })
 // 瀏覽一筆資料GET
-router.get('/:_id/detail', (req,res) => {
-  const id = req.params._id
+router.get('/:id/detail', (req,res) => {
+  const userId = req.user._id
+  const _id = req.params.id
   // console.log(id)
-  return Restaurant.findById(id)
+  return Restaurant.findOne({ _id, userId})
     .lean()
     .then((restaurants) => res.render("detail", { restaurants }))
     .catch(error => console.log(error))
 })
 
 // 編輯一筆資料 GET
-router.get('/:_id/edit', (req,res) => {
-  const id = req.params._id
-  return Restaurant.findById(id)
+router.get('/:id/edit', (req,res) => {
+  const userId = req.user._id
+  const _id = req.params.id
+  return Restaurant.findOne({ _id, userId})
     .lean()
     .then( (restaurants) => res.render('edit', { restaurants }))
     .catch( error => console.log(error))
 })
 
 // 編輯一筆資料 POST
-router.put('/:_id', (req,res) => {
-  const id = req.params._id
-  const bodyParser = req.body
-  return Restaurant.findById(id)
+router.put('/:id', (req,res) => {
+  const userId = req.user._id
+  const _id = req.params.id
+  const {name, name_en, category, image, location, phone, google_map, rating, description} = req.body
+  return Restaurant.findOne({ _id, userId})
     .then((restaurants) => {
-      restaurants.name = bodyParser.name
-      restaurants.name_en = bodyParser.name_en
-      restaurants.category = bodyParser.category
-      restaurants.image = bodyParser.image
-      restaurants.location = bodyParser.location
-      restaurants.phone = bodyParser.phone
-      restaurants.google_map = bodyParser.google_map
-      restaurants.rating = bodyParser.rating
-      restaurants.description = bodyParser.description
+      restaurants.name = name
+      restaurants.name_en = name_en
+      restaurants.category = category
+      restaurants.image = image
+      restaurants.location = location
+      restaurants.phone = phone
+      restaurants.google_map = google_map
+      restaurants.rating = rating
+      restaurants.description = description
+      restaurants.userId = userId
       return restaurants.save()
     })
-    .then(() => res.redirect("/"))
+    .then(() => res.redirect(`/restaurants/${_id}/detail`))
     .catch( error => console.log(error))
 })
 // 刪除一筆資料
-router.delete('/:_id', (req,res) => {
-  const id = req.params._id
-  return Restaurant.findById(id)
+router.delete('/:id', (req,res) => {
+  const userId = req.user._id
+  const _id = req.params.id
+  return Restaurant.findOne({ _id, userId})
     .then( (restaurants) => restaurants.remove()) 
     .then( () => res.redirect('/'))
     .catch( error => console.log(error))
