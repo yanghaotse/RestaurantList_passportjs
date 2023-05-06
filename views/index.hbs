@@ -28,10 +28,10 @@
     </form>
   </div>
 </div>
-
 <!-- restaurant list -->
 <div class="container mt-5">
   <div class="row row-cols-1 row-cols-md-3">
+    
     {{#each restaurants}}
     <div class="container container-restaurant col-12">
         {{!-- render restaurant-list --}}
@@ -42,12 +42,12 @@
               <h6 class="card-title mb-1">{{this.name}}</h6>
       
               <div class="restaurant-category mb-1">
-                <i class="fas fa-utensils pr-2"></i> {{this.category}}
+                <i class="fas fa-utensils pr-2 category-fa"></i> {{this.category}}
               </div>
       
               <span class="font-weight-normal">
                 {{this.rating}}
-                <i class="fa-solid fa-star" style="color: #f0e800;"></i>
+                <i class="fa-solid fa-star rating-fa" style="color: #f0e800;"></i>
               </span>
             </div>
             <ul class="index-ul">
@@ -63,5 +63,8 @@
         </a>
     </div>
     {{/each}}
+    
   </div>
+  <a class="btn-primary" id="create" role="button" href="/restaurants/new"><i class="fa-solid fa-circle-plus"></i></button></a>
 </div>
+

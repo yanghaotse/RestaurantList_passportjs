@@ -1,3 +1,7 @@
+body{
+  background-color:#f1e6d6 ;
+}
+
 header {
   overflow: hidden; 
 }
@@ -166,11 +170,19 @@ input.form-control{
   font-size: 3rem;
 }
 
-i,span,p{
+p{
+  font-size: 18px;
+}
+/* 上面span */
+.nav-fa, .category-fa, .rating-fa{
   font-size: 18px;
 }
 
-
-body{
-  background-color:#f1e6d6 ;
+#create{
+  position: absolute;
+  right: 10%;
+  font-size:80px;
+  width: 60px;
+  height: 60px;
 }
+

@@ -26,7 +26,15 @@ app.use(session({
 app.use(express.urlencoded({ extended : true })) //body-parser
 app.use(express.static('public')) //使用靜態檔案
 app.use(methodOverride('_method'))
+
 usePassport(app)
+app.use((req, res, next) => {
+  // console.log(req.user) //檢查用
+  res.locals.isAuthenticated = req.isAuthenticated()
+  res.locals.user = req.user
+  next()
+})
+
 app.use(routes)
 
 app.listen( port, () => {
