@@ -7,6 +7,7 @@ const methodOverride = require('method-override')
 const routes = require('./routes')//引入路由器時，路徑設定為 /routes 就會自動去尋找目錄下叫做 index 的檔案
 require('./config/mongoose')
 const usePassport = require('./config/passport')
+const flash = require('connect-flash')
 
 const app = express()
 const port = 3000
@@ -27,11 +28,14 @@ app.use(express.urlencoded({ extended : true })) //body-parser
 app.use(express.static('public')) //使用靜態檔案
 app.use(methodOverride('_method'))
 
-usePassport(app)
+usePassport(app) //掛載passport套件
+app.use(flash()) //掛載flash套件
 app.use((req, res, next) => {
   // console.log(req.user) //檢查用
   res.locals.isAuthenticated = req.isAuthenticated()
   res.locals.user = req.user
+  res.locals.success_msg = req.flash('success_msg')
+  res.locals.warning_msg = req.flash('warning_msg')
   next()
 })
 
