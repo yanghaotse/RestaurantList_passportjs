@@ -10,14 +10,18 @@ const usePassport = require('./config/passport')
 const flash = require('connect-flash')
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
+
+if(process.env.NODE_URI !== 'production'){
+  require('dotenv').config()
+}
 
 app.engine('hbs', exphbs({defaultLayout : 'main', extname : '.hbs'}))
 app.set('view engine', 'hbs')
 
 // 設定session
 app.use(session({
-  secret:'ThisIsMySecret',
+  secret: process.env.SESSION_SECRET,
   resave: false, 
   // resave: 設定為 true 時，會在每一次與使用者互動後，強制把 session 更新到 session store 裡。
   saveUninitialized: true
