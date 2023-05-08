@@ -1,9 +1,10 @@
 # 我的餐廳清單
-![我的餐廳清單-首頁](/image/%E9%87%8D%E6%A7%8B%E9%A4%90%E5%BB%B3%E6%B8%85%E5%96%AE.png)
+![我的餐廳清單-首頁](/image/restaurantlist_passport.png)
 ## 介紹
 
 紀錄屬於自己的餐廳清單，可以瀏覽餐廳、查看詳細資訊、甚至連結到地圖。
 ### 功能
+* 使用者認證系統
 * 查看所有餐廳
 * 瀏覽餐廳的詳細資訊
 * 新增餐廳資料
@@ -26,7 +27,7 @@
   ```
 5. 若看見此行訊息則代表與資料庫連結成功
   ```
-  done.
+  mongoDB connected!
   ```
 6. 繼續輸入：
   ```
@@ -40,6 +41,15 @@
   ```
   ctrl + c
   ```
+9. 測試種子資料
+  ```
+  npm run seed
+  ```
+10. 若看見此二訊息則代表順利運行
+ ```
+  restaurantSeeder1 done.
+  restaurantSeeder2 done.
+  ```
 ## 開發工具
 
 * Node.js 18.15.0
@@ -50,4 +60,10 @@
 * Google Font 
 * MongoDB
 * mongoose 5.9.7
-
+* passport 0.4.1
+* passport-facebook 3.0.0
+* passport-local 1.0.0
+* dotenv
+* bcryptjs
+* connect-flash
+* method-override
