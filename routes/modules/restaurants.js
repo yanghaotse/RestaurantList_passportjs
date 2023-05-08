@@ -6,12 +6,13 @@ const router = express.Router()
 
 
 router.get('/search',(req, res) => {
+  const userId = req.user._id
   const keyword = req.query.keyword
   // console.log(keyword)
   if (!keyword){
     return res.redirect('/')
   }
-  Restaurant.find()
+  Restaurant.find({ userId })
     .lean()
     .then( restaurants => {
       const restaurant = restaurants.filter( (item) => {
